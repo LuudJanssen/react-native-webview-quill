@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.tsx",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "lint": "tslint 'src/**/*.{ts,tsx}'"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,13 @@
   "devDependencies": {
     "@babel/runtime": "^7.3.1",
     "@types/react": "^16.8.3",
-    "@types/react-native": "^0.57.36"
+    "@types/react-native": "^0.57.36",
+    "react-native-typescript-transformer": "^1.2.11",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3"
   },
   "dependencies": {}
 }
