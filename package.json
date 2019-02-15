@@ -2,7 +2,7 @@
   "name": "vote-for-fun-components",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "scripts": {
     "test": "test"
   },
@@ -17,19 +17,13 @@
   },
   "homepage": "https://github.com/LuudJanssen/vote-for-fun-components#readme",
   "peerDependencies": {
-    "react-native": "^0.58.4"
-  },
-  "dependencies": {
-    "react-native": "^0.58.4"
+    "react-native": "*",
+    "react": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
+    "@babel/runtime": "^7.3.1",
     "@types/react": "^16.8.3",
-    "@types/react-native": "^0.57.36",
-    "metro-react-native-babel-preset": "^0.51.1",
-    "parcel-bundler": "^1.11.0",
-    "react": "^16.8.1",
-    "typescript": "^3.3.3"
-  }
+    "@types/react-native": "^0.57.36"
+  },
+  "dependencies": {}
 }
