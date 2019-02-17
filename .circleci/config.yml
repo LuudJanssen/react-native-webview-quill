@@ -30,9 +30,9 @@ jobs:
 
       # Cache all node_modules to speed up subsequent builds
       - save_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-          key: v1-dependency-cache-{{ checksum "package.json" }}
 
       - save_cache:
           key: v1-dependencies-installed-{{ .Environment.CIRCLE_SHA1 }}
@@ -50,6 +50,9 @@ jobs:
       - restore_cache:
           key: v1-dependencies-installed-{{ .Environment.CIRCLE_SHA1 }}
 
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+
       - run:
           name: Check code style
           command: yarn run lint
@@ -64,6 +67,9 @@ jobs:
     steps:
       - restore_cache:
           key: v1-dependencies-installed-{{ .Environment.CIRCLE_SHA1 }}
+
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
 
       - run:
           name: Test
