@@ -5,7 +5,7 @@
   "main": "src/index.tsx",
   "scripts": {
     "test": "jest",
-    "lint": "tslint 'src/**/*.{ts,tsx}' --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json"
   },
   "repository": {
     "type": "git",
