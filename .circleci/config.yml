@@ -1,33 +1,83 @@
 version: 2
 jobs:
-  build:
+  # Install all NPM dependencies
+  install-dependencies:
     # We use the Node 10.15.1 Docker image
     docker:
       - image: circleci/node:10.15.1
 
-    working_directory: ~/repo
+    working_directory: ~/vote-for-fun-components
 
     steps:
       - checkout
 
-      # Download and cache dependencies
+      # Check for cached dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - dependency-cache-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - dependency-cache-
+
+      # Generate yarn.lock file
+      - run:
+        name: Check dependency lock
+        command: yarn import
 
       # Install dependencies
-      - run: yarn install
+      - run:
+        name: Install dependencies
+        command: yarn install
 
-      # Cache all node_modules to speed up builds
+      # Cache all node_modules to speed up subsequent builds
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
 
-      # Run linter to check for code style errors
-      - run: yarn run lint
+  # Run linter to check for code style errors
+  lint:
+    docker:
+      - image: circleci/node:10.15.1
 
-      # Run tests
-      - run: yarn test
+    steps:
+      - checkout
+
+      - run:
+        name: Check code style
+        command: yarn run lint
+
+  # Run tests
+  test:
+    docker:
+      - image: circleci/node:10.15.1
+
+    steps:
+      - checkout
+
+      - run:
+        name: Test
+        command: yarn test
+
+# Define workflows - Both lint and test jobs require installed dependencies
+workflows:
+  version: 2
+  test-and-lint:
+    jobs:
+      - install-dependencies:
+        filters:
+          branches:
+            only: develop
+
+      - lint:
+        requires:
+          - install-dependencies
+        filters:
+          branches:
+            only: develop
+
+      - test:
+        requires:
+          - install-dependencies
+        filters:
+          branches:
+            only: develop
