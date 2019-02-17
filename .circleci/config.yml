@@ -20,13 +20,13 @@ jobs:
 
       # Generate yarn.lock file
       - run:
-        name: Check dependency lock
-        command: yarn import
+          name: Check dependency lock
+          command: yarn import
 
       # Install dependencies
       - run:
-        name: Install dependencies
-        command: yarn install
+          name: Install dependencies
+          command: yarn install
 
       # Cache all node_modules to speed up subsequent builds
       - save_cache:
@@ -43,8 +43,8 @@ jobs:
       - checkout
 
       - run:
-        name: Check code style
-        command: yarn run lint
+          name: Check code style
+          command: yarn run lint
 
   # Run tests
   test:
@@ -55,8 +55,8 @@ jobs:
       - checkout
 
       - run:
-        name: Test
-        command: yarn test
+          name: Test
+          command: yarn test
 
 # Define workflows - Both lint and test jobs require installed dependencies
 workflows:
@@ -64,20 +64,20 @@ workflows:
   test-and-lint:
     jobs:
       - install-dependencies:
-        filters:
-          branches:
-            only: develop
+          filters:
+            branches:
+              only: develop
 
       - lint:
-        requires:
-          - install-dependencies
-        filters:
-          branches:
-            only: develop
+          requires:
+            - install-dependencies
+          filters:
+            branches:
+              only: develop
 
       - test:
-        requires:
-          - install-dependencies
-        filters:
-          branches:
-            only: develop
+          requires:
+            - install-dependencies
+          filters:
+            branches:
+              only: develop
