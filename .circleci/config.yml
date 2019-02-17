@@ -39,24 +39,28 @@ jobs:
     docker:
       - image: circleci/node:10.15.1
 
+    working_directory: ~/vote-for-fun-components
+
     steps:
       - checkout
 
       - run:
           name: Check code style
-          command: npm run lint
+          command: yarn run lint
 
   # Run tests
   test:
     docker:
       - image: circleci/node:10.15.1
 
+    working_directory: ~/vote-for-fun-components
+
     steps:
       - checkout
 
       - run:
           name: Test
-          command: npm test
+          command: yarn test
 
 # Define workflows - Both lint and test jobs require installed dependencies
 workflows:
