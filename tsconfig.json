@@ -4,14 +4,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["esnext"],
-    "noEmit": true, 
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }
