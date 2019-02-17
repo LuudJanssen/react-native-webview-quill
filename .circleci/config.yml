@@ -55,7 +55,7 @@ jobs:
 
       - run:
           name: Check code style
-          command: yarn run lint
+          command: npm run lint
 
   # Run tests
   test:
@@ -73,7 +73,7 @@ jobs:
 
       - run:
           name: Test
-          command: yarn test
+          command: npm test
 
 # Define workflows - Both lint and test jobs require installed dependencies
 workflows:
