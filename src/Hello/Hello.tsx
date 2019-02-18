@@ -5,7 +5,7 @@ export default class Hello extends React.Component {
   public render() {
     return (
       <View>
-        <Text>Hello from the other side test!</Text>
+        <Text>Hello from the other side!</Text>
       </View>
     );
   }
