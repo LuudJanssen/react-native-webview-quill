@@ -80,7 +80,7 @@ workflows:
   version: 2
   test-and-lint:
     jobs:
-      - install-dependencies:
+      - install-dependencies
 
       - lint:
           requires:
