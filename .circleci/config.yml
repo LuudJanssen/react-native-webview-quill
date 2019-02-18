@@ -81,20 +81,11 @@ workflows:
   test-and-lint:
     jobs:
       - install-dependencies:
-          filters:
-            branches:
-              only: develop
 
       - lint:
           requires:
             - install-dependencies
-          filters:
-            branches:
-              only: develop
 
       - test:
           requires:
             - install-dependencies
-          filters:
-            branches:
-              only: develop
