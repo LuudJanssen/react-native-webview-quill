@@ -19,14 +19,14 @@ jobs:
             - v1-dependency-cache-
 
       # Generate yarn.lock file
-      - run:
-          name: Check dependency lock
-          command: yarn import
+      #- run:
+      #    name: Check dependency lock
+      #    command: yarn import
 
       # Install dependencies
       - run:
           name: Install dependencies
-          command: yarn install
+          command: npm install
 
       # Cache all node_modules to speed up subsequent builds
       - save_cache:
