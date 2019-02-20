@@ -1,5 +1,5 @@
 {
-  "name": "vote-for-fun-components",
+  "name": "react-native-webview-quill",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.tsx",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuudJanssen/vote-for-fun-components.git"
+    "url": "git+https://github.com/LuudJanssen/react-native-webview-quill.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuudJanssen/vote-for-fun-components/issues"
+    "url": "https://github.com/LuudJanssen/react-native-webview-quill/issues"
   },
-  "homepage": "https://github.com/LuudJanssen/vote-for-fun-components#readme",
+  "homepage": "https://github.com/LuudJanssen/react-native-webview-quill#readme",
   "peerDependencies": {
     "react-native": "*",
     "react": "*"
