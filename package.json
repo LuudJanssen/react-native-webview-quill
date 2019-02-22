@@ -24,24 +24,26 @@
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/runtime": "^7.3.1",
-    "@types/jest": "^24.0.5",
-    "@types/react": "^16.8.3",
-    "@types/react-native": "^0.57.36",
+    "@types/jest": "^24.0.6",
+    "@types/react": "^16.8.4",
+    "@types/react-native": "^0.57.38",
     "@types/react-test-renderer": "^16.8.1",
     "babel-preset-expo": "^5.0.0",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
-    "react": "^16.8.2",
-    "react-native": "^0.58.4",
+    "react": "^16.8.3",
+    "react-native": "^0.58.5",
     "react-native-typescript-transformer": "^1.2.11",
-    "react-test-renderer": "^16.8.2",
-    "ts-jest": "^23.10.5",
+    "react-test-renderer": "^16.8.3",
+    "ts-jest": "^24.0.0",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3333"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-native-webview": "^5.2.1"
+  }
 }
