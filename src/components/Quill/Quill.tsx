@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { WebViewType } from 'src/connectors/webView/WebViewType';
 import providerRegistry from '../../providerRegistry';
 
 export default class Quill extends React.Component {
-  private WebViewComponent: React.ComponentType = providerRegistry.WebView;
+  private WebViewComponent: WebViewType = providerRegistry.WebView;
 
   public render() {
-    return <this.WebViewComponent>Test</this.WebViewComponent>;
+    return <this.WebViewComponent source={{ html: '<h1>This is test html</h1>' }} />;
   }
 }
