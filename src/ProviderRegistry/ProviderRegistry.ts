@@ -4,12 +4,12 @@ import DummyWebView from '../connectors/webView/DummyWebView';
 import { WebViewType } from '../connectors/webView/WebViewType';
 
 export class ProviderRegistry {
-  set WebView(component: WebViewType) {
-    this._WebView = component;
+  set WebViewComponent(component: WebViewType) {
+    this._WebViewComponent = component;
   }
 
-  get WebView(): WebViewType {
-    return this._WebView;
+  get WebViewComponent(): WebViewType {
+    return this._WebViewComponent;
   }
 
   set imagePickerConnector(connector: IImagePickerConnector) {
@@ -20,6 +20,6 @@ export class ProviderRegistry {
     return this._imagePickerConnector;
   }
 
-  private _WebView: WebViewType = DummyWebView;
+  private _WebViewComponent: WebViewType = DummyWebView;
   private _imagePickerConnector: IImagePickerConnector = new DummyImagePickerConnector();
 }
