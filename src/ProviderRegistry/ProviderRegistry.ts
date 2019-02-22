@@ -1,15 +1,15 @@
+import { ComponentType } from 'react';
 import { DummyImagePickerConnector } from '../connectors/imagePicker/DummyImagePickerConnector';
 import { IImagePickerConnector } from '../connectors/imagePicker/IImagePickerConnector';
-import { DummyWebviewConnector } from '../connectors/webview/DummyWebviewConnector';
-import { IWebviewConnector } from '../connectors/webview/IWebviewConnector';
+import DummyWebView from '../connectors/webView/DummyWebView';
 
 export class ProviderRegistry {
-  set webviewConnector(connector: IWebviewConnector) {
-    this._webviewConnector = connector;
+  set WebView(component: ComponentType) {
+    this._WebView = component;
   }
 
-  get webviewConnector(): IWebviewConnector {
-    return this._webviewConnector;
+  get WebView(): ComponentType {
+    return this._WebView;
   }
 
   set imagePickerConnector(connector: IImagePickerConnector) {
@@ -20,6 +20,6 @@ export class ProviderRegistry {
     return this._imagePickerConnector;
   }
 
-  private _webviewConnector: IWebviewConnector = new DummyWebviewConnector();
+  private _WebView: ComponentType = DummyWebView;
   private _imagePickerConnector: IImagePickerConnector = new DummyImagePickerConnector();
 }
