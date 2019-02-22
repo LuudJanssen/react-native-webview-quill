@@ -1,2 +1,6 @@
-import Hello from './Hello/Hello';
-export { Hello };
+import Quill from './components/Quill/Quill';
+import { ProviderRegistry } from './ProviderRegistry/ProviderRegistry';
+
+const providerRegistry = new ProviderRegistry();
+
+export { providerRegistry, Quill };
