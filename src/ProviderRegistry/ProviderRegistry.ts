@@ -1,25 +1,36 @@
-import { DummyImagePickerConnector } from '../connectors/imagePicker/DummyImagePickerConnector';
-import { IImagePickerConnector } from '../connectors/imagePicker/IImagePickerConnector';
-import DummyWebView from '../connectors/webView/DummyWebView';
-import { WebViewType } from '../connectors/webView/WebViewType';
+import { DummyImagePickerProvider } from '../providers/imagePicker/DummyImagePickerProvider';
+import { IImagePickerProvider } from '../providers/imagePicker/IImagePickerProvider';
+import IResourceProvider from '../providers/resource/IResourceProvider';
+import OnlineResourceProvider from '../providers/resource/OnlineResourceProvider';
+import DummyWebViewProvider from '../providers/webView/DummyWebViewProvider';
+import { WebViewProvider } from '../providers/webView/WebViewProvider';
 
 export class ProviderRegistry {
-  set WebViewComponent(component: WebViewType) {
-    this._WebViewComponent = component;
+  set WebViewProvider(provider: WebViewProvider) {
+    this._WebViewProvider = provider;
   }
 
-  get WebViewComponent(): WebViewType {
-    return this._WebViewComponent;
+  get WebViewProvider(): WebViewProvider {
+    return this._WebViewProvider;
   }
 
-  set imagePickerConnector(connector: IImagePickerConnector) {
-    this._imagePickerConnector = connector;
+  set imagePickerProvider(provider: IImagePickerProvider) {
+    this._imagePickerProvider = provider;
   }
 
-  get imagePickerConnector(): IImagePickerConnector {
-    return this._imagePickerConnector;
+  get imagePickerProvider(): IImagePickerProvider {
+    return this._imagePickerProvider;
   }
 
-  private _WebViewComponent: WebViewType = DummyWebView;
-  private _imagePickerConnector: IImagePickerConnector = new DummyImagePickerConnector();
+  set ResourceProvider(provider: new () => IResourceProvider) {
+    this._resourceProvider = provider;
+  }
+
+  get ResourceProvider(): new () => IResourceProvider {
+    return this._resourceProvider;
+  }
+
+  private _WebViewProvider: WebViewProvider = DummyWebViewProvider;
+  private _imagePickerProvider: IImagePickerProvider = new DummyImagePickerProvider();
+  private _resourceProvider: new () => IResourceProvider = OnlineResourceProvider;
 }
