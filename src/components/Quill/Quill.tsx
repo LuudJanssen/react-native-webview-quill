@@ -4,7 +4,7 @@ import providerRegistry from '../../providerRegistry';
 import { loadLocalResource, Source } from '../../utils/loadLocalResource';
 import webViewHtml from './resources/webView.html';
 
-export default class Quill extends React.Component {
+export class Quill extends React.Component {
   private WebViewComponent: WebViewType = providerRegistry.WebViewComponent;
   private htmlSource: Source = loadLocalResource(webViewHtml);
 

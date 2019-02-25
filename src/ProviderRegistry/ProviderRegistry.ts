@@ -1,9 +1,9 @@
-import { DummyImagePickerProvider } from '../providers/imagePicker/DummyImagePickerProvider';
+import { DummyImagePickerProvider } from '../providers/ImagePicker/Dummy/index';
 import { IImagePickerProvider } from '../providers/imagePicker/IImagePickerProvider';
-import IResourceProvider from '../providers/resource/IResourceProvider';
-import OnlineResourceProvider from '../providers/resource/OnlineResourceProvider';
-import DummyWebViewProvider from '../providers/webView/DummyWebViewProvider';
-import { WebViewProvider } from '../providers/webView/WebViewProvider';
+import { IResourceProvider } from '../providers/resource/IResourceProvider';
+import { OnlineResourceProvider } from '../providers/Resource/Online/index';
+import { DummyWebViewProvider } from '../providers/webView/Dummy/index';
+import { WebViewProvider } from '../providers/WebView/types/WebViewProvider';
 
 export class ProviderRegistry {
   set WebViewProvider(provider: WebViewProvider) {

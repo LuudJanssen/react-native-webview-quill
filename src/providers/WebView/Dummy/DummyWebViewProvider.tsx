@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { WebView } from 'react-native';
-import { DummyComponentError } from '../DummyComponentError';
+import { DummyComponentError } from '../../DummyComponentError';
 
-export default class DummyWebView extends Component implements WebView {
+export class DummyWebViewProvider extends Component implements WebView {
   public getWebViewHandle: () => any;
   public goForward: () => void;
   public goBack: () => void;
