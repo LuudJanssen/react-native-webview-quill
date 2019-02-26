@@ -1,2 +1,4 @@
-import Hello from './Hello/Hello';
-export { Hello };
+import { Quill } from './components/Quill/Quill';
+import { providerRegistry } from './ProviderRegistry/index';
+
+export { providerRegistry, Quill };

@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: circleci/node:10.15.1
 
-    working_directory: ~/vote-for-fun-components
+    working_directory: ~/react-native-webview-quill
 
     steps:
       - checkout
@@ -37,14 +37,14 @@ jobs:
       - save_cache:
           key: v1-dependencies-installed-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/vote-for-fun-components
+            - ~/react-native-webview-quill
 
   # Run linter to check for code style errors
   lint:
     docker:
       - image: circleci/node:10.15.1
 
-    working_directory: ~/vote-for-fun-components
+    working_directory: ~/react-native-webview-quill
 
     steps:
       - restore_cache:
@@ -62,7 +62,7 @@ jobs:
     docker:
       - image: circleci/node:10.15.1
 
-    working_directory: ~/vote-for-fun-components
+    working_directory: ~/react-native-webview-quill
 
     steps:
       - restore_cache:

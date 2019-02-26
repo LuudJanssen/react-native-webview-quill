@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Hello should be on the other side 1`] = `
-<View>
-  <Text>
-    Hello from the other side!
-  </Text>
-</View>
-`;
