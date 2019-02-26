@@ -1,4 +1,4 @@
 export interface IResourceProvider {
   getQuillScript: () => Promise<string>;
-  getQuillStyle: () => Promise<string>;
+  getQuillStyleSheet: () => Promise<string>;
 }

@@ -1,36 +1,36 @@
 import { DummyImagePickerProvider } from '../providers/ImagePicker/Dummy/index';
-import { IImagePickerProvider } from '../providers/imagePicker/IImagePickerProvider';
-import { IResourceProvider } from '../providers/resource/IResourceProvider';
+import { IImagePickerProvider } from '../providers/ImagePicker/IImagePickerProvider';
+import { IResourceProvider } from '../providers/Resource/IResourceProvider';
 import { OnlineResourceProvider } from '../providers/Resource/Online/index';
-import { DummyWebViewProvider } from '../providers/webView/Dummy/index';
+import { DummyWebViewProvider } from '../providers/WebView/Dummy/index';
 import { WebViewProvider } from '../providers/WebView/types/WebViewProvider';
 
 export class ProviderRegistry {
   set WebViewProvider(provider: WebViewProvider) {
-    this._WebViewProvider = provider;
+    this.WebView = provider;
   }
 
   get WebViewProvider(): WebViewProvider {
-    return this._WebViewProvider;
+    return this.WebView;
   }
 
-  set imagePickerProvider(provider: IImagePickerProvider) {
-    this._imagePickerProvider = provider;
+  set ImagePickerProvider(provider: IImagePickerProvider) {
+    this.ImagePicker = provider;
   }
 
-  get imagePickerProvider(): IImagePickerProvider {
-    return this._imagePickerProvider;
+  get ImagePickerProvider(): IImagePickerProvider {
+    return this.ImagePicker;
   }
 
   set ResourceProvider(provider: new () => IResourceProvider) {
-    this._resourceProvider = provider;
+    this.Resource = provider;
   }
 
   get ResourceProvider(): new () => IResourceProvider {
-    return this._resourceProvider;
+    return this.Resource;
   }
 
-  private _WebViewProvider: WebViewProvider = DummyWebViewProvider;
-  private _imagePickerProvider: IImagePickerProvider = new DummyImagePickerProvider();
-  private _resourceProvider: new () => IResourceProvider = OnlineResourceProvider;
+  private WebView: WebViewProvider = DummyWebViewProvider;
+  private ImagePicker: IImagePickerProvider = new DummyImagePickerProvider();
+  private Resource: new () => IResourceProvider = OnlineResourceProvider;
 }
