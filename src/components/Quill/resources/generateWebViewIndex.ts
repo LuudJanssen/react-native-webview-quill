@@ -18,7 +18,7 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
           body {
             margin: 0;
             padding: 0;
-            background-color: red;
+            height: 100%;
           }
 
           .quill-editor {
@@ -32,7 +32,6 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
         </style>
       </head>
       <body>
-        <h1>Test title 2</h1>
         <div id="editor" class="quill-editor"></div>
 
         <script>
@@ -52,14 +51,11 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
           }
 
           function onContentChange(data) {
-            console.log('content change', data);
             editor.setContents(data);
           }
 
           function processMessage(message) {
             const { type, data } = message;
-
-            console.log('message');
 
             switch (type) {
               case ${EventType.CONTENT_CHANGE}:
@@ -69,7 +65,6 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
 
           function onMessage(event) {
             try {
-              console.log('onmessage');
               // TODO: Implement only sending delta's to save time on JSON parsing overhead
               processMessage(JSON.parse(event.data));
             } catch (error) {
@@ -78,13 +73,14 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
           }
 
           function bindMessageHandler() {
-            console.log(window.ReactNativeWebView);
             window.addEventListener('message', onMessage);
             window.onmessage = onMessage
           }
 
           /* Create the Quill editor */
-          const editor = new Quill('#editor');
+          const editor = new Quill('#editor', {
+            theme: 'snow'
+          });
 
           /* Set the initial content */
           editor.setContents(${JSON.stringify(content)})

@@ -2,7 +2,6 @@ import { DeltaStatic } from 'quill-delta';
 import * as React from 'react';
 import { ActivityIndicator, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
 import { WebView as CommunityWebView, WebViewMessageEvent } from 'react-native-webview';
-import { WebViewProvider } from 'src/providers/WebView/types/WebViewProvider';
 import { providerRegistry } from '../../ProviderRegistry/index';
 import { EventType, IMessage } from './interfaces/IMessage';
 import { generateWebViewIndex } from './resources/generateWebViewIndex';
@@ -21,6 +20,7 @@ type WebViewRef = ReactNativeWebView | CommunityWebView | null;
 export class Quill extends React.Component<IProps, IState> {
   private WebViewComponent = providerRegistry.WebViewProvider;
   private ResourceProvider = new providerRegistry.ResourceProvider();
+  private ThemeProvider = providerRegistry.ThemeProvider;
   private webView: WebViewRef = null;
 
   private fullHeightStyle: ViewStyle = {
@@ -67,7 +67,7 @@ export class Quill extends React.Component<IProps, IState> {
 
   private async loadResources(): Promise<void> {
     const scriptRequest = this.ResourceProvider.getQuillScript();
-    const styleSheetRequest = this.ResourceProvider.getQuillStyleSheet();
+    const styleSheetRequest = this.ResourceProvider.getQuillStyleSheet(this.ThemeProvider);
 
     const [script, styleSheet] = await Promise.all([scriptRequest, styleSheetRequest]);
 
