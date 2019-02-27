@@ -77,6 +77,13 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
             window.onmessage = onMessage
           }
 
+          document.onreadystatechange = () => {
+            const toolbarHeight = document.querySelector(".ql-toolbar").offsetHeight;
+            const windowHeight = window.innerHeight;
+            const bodyHeight = windowHeight - toolbarHeight + 'px';
+            document.body.style.height = bodyHeight;
+          }
+
           /* Create the Quill editor */
           const editor = new Quill('#editor', {
             theme: 'snow'
