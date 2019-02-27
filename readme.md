@@ -19,44 +19,73 @@ import {Quill} from "react-native-webview-quill"
 This package can be used to create both an editor and a viewer
 
 Creating a Quill.js editor with the standard toolbar:
-~~~~
- <Quill
-    onContentsChange={contents => {
-      console.log(contents);
-    }}
-    config={{
-      modules: {
-        //toolbar: false,
-        toolbar: [
-          [{ header: [1, 2, false] }],
-          ["bold", "italic", "underline"],
-          ["image", "video"]
-        ]
+
+```javascript
+import { Quill, providerRegistry } from 'react-native-webview-quill';
+import { WebView } from 'react-native-webview-quill/src/providers/WebView/ReactNative/index';
+
+providerRegistry.WebViewProvider = WebView;
+
+const defaultOps = {
+  ops: [
+    {
+      insert: 'Test',
+      attributes: {
+        bold: true,
       },
-      theme: "snow", // or 'bubble'
-      placeholder: "Placeholder text"
-      //readOnly: true,
-    }}
-    style={{
-      width: 300,
-      height: 200
-    }}
-    contents={{
-      ops: [
-        {
-          insert: "Some bold text",
-          attributes: {
-            bold: true
-          }
-        }
-      ]
-    }}
-    imagePickerConfig={{
-      title: "Kies een afbeelding",
-      allowsEditing: true
-    }}
-  />
-~~~~
+    },
+  ],
+};
+
+export default class App extends React.Component {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      content: defaultOps,
+    };
+  }
+
+  public render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <Quill
+          onContentsChange={contents => {
+            console.log(contents);
+          }}
+          config={{
+            modules: {
+              //toolbar: false,
+              toolbar: [
+                [{ header: [1, 2, false] }],
+                ["bold", "italic", "underline"],
+                ["image", "video"]
+              ]
+            },
+            theme: "snow", // or 'bubble'
+            placeholder: "Placeholder text"
+            //readOnly: true,
+          }}
+          style={{
+            width: 300,
+            height: 200
+          }}
+          contents={defaultOps}
+          imagePickerConfig={{
+            title: "Kies een afbeelding",
+            allowsEditing: true
+          }}
+        />
+      </View>
+    );
+  }
+
+  private onContentChange = (content: DeltaStatic) => {
+    this.setState({ content });
+
+    console.log('CONTENT', content);
+  };
+}
+```
 
 ## Properties
 All these properties are optional.
