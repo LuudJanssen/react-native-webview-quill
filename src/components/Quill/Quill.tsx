@@ -27,6 +27,11 @@ export class Quill extends React.Component<IProps, IState> {
     flex: 1,
   };
 
+  private webViewStyle: ViewStyle = {
+    ...this.fullHeightStyle,
+    backgroundColor: 'rgba(0,0,0,0)'
+  }
+
   constructor(props: any) {
     super(props);
     this.state = {
@@ -54,7 +59,7 @@ export class Quill extends React.Component<IProps, IState> {
       <this.WebViewComponent
         source={{ html: this.state.html }}
         javaScriptEnabled={true}
-        style={this.fullHeightStyle}
+        style={this.webViewStyle}
         onMessage={this.onMessage}
         ref={this.registerWebView}
       />
