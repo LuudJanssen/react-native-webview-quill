@@ -29,8 +29,8 @@ export class Quill extends React.Component<IProps, IState> {
 
   private webViewStyle: ViewStyle = {
     ...this.fullHeightStyle,
-    backgroundColor: 'rgba(0,0,0,0)'
-  }
+    backgroundColor: 'rgba(0,0,0,0)',
+  };
 
   constructor(props: any) {
     super(props);
