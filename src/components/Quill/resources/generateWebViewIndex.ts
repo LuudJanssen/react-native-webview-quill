@@ -26,19 +26,19 @@ export function generateWebViewIndex(
             padding: 0;
           }
           
-          #container {
+          .ql-wrapper {
             display: flex;
             flex-direction: column;
             height: 100%;
           }
           
-          #editor {
+          .quill-editor {
             flex: 1 1 auto;
             border: 0px !important;
           }
           
-          .ql-container {
-            height: auto !important;
+          .ql-wrapper .ql-container {
+            height: auto;
           }
         </style>
 
@@ -47,8 +47,8 @@ export function generateWebViewIndex(
         </style>
       </head>
       <body>
-        <div id="container">
-          <div id="editor" class="quill-editor"></div>
+        <div class="ql-wrapper">
+          <div class="quill-editor"></div>
         </div>
 
         <script>
@@ -95,7 +95,7 @@ export function generateWebViewIndex(
           }
 
           /* Create the Quill editor */
-          const editor = new Quill('#editor', ${JSON.stringify(options)});
+          const editor = new Quill('.quill-editor', ${JSON.stringify(options)});
 
           /* Set the initial content */
           editor.setContents(${JSON.stringify(content)})
