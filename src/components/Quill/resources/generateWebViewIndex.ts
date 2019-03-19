@@ -34,7 +34,7 @@ export function generateWebViewIndex(
           
           .quill-editor {
             flex: 1 1 auto;
-            border: 0px !important;
+            border: 0px;
           }
           
           .ql-wrapper .ql-container {
