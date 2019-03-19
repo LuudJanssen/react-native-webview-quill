@@ -10,7 +10,7 @@ import { generateWebViewIndex } from './resources/generateWebViewIndex';
 interface IProps {
   containerStyle?: ViewStyle;
   content?: DeltaStatic;
-  onContentChange: (content: DeltaStatic) => any;
+  onContentChange?: (content: DeltaStatic) => any;
   options?: QuillOptionsStatic;
 }
 
@@ -105,7 +105,7 @@ export class Quill extends React.Component<IProps, IState> {
 
     switch (type) {
       case EventType.CONTENT_CHANGE:
-        return this.props.onContentChange(data);
+        return this.props.onContentChange && this.props.onContentChange(data);
     }
   }
 
