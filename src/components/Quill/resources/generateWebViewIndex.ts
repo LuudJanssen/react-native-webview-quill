@@ -21,15 +21,24 @@ export function generateWebViewIndex(
         <style>
           html,
           body {
+            height: 100%;
             margin: 0;
             padding: 0;
+          }
+          
+          #container {
+            display: flex;
+            flex-direction: column;
             height: 100%;
           }
-
-          .quill-editor {
-            height: 100%;
-            width: 100%;
+          
+          #editor {
+            flex: 1 1 auto;
             border: 0px !important;
+          }
+          
+          .ql-container {
+            height: auto !important;
           }
         </style>
 
@@ -38,7 +47,9 @@ export function generateWebViewIndex(
         </style>
       </head>
       <body>
-        <div id="editor" class="quill-editor"></div>
+        <div id="container">
+          <div id="editor" class="quill-editor"></div>
+        </div>
 
         <script>
           ${resources.script};
@@ -81,13 +92,6 @@ export function generateWebViewIndex(
           function bindMessageHandler() {
             window.addEventListener('message', onMessage);
             window.onmessage = onMessage
-          }
-
-          document.onreadystatechange = () => {
-            const toolbarHeight = document.querySelector(".ql-toolbar").offsetHeight;
-            const windowHeight = window.innerHeight;
-            const bodyHeight = windowHeight - toolbarHeight + 'px';
-            document.body.style.height = bodyHeight;
           }
 
           /* Create the Quill editor */
