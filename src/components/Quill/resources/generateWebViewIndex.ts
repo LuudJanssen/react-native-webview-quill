@@ -24,6 +24,7 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
           .quill-editor {
             height: 100%;
             width: 100%;
+            border: 0px !important;
           }
         </style>
 

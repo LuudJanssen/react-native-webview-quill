@@ -1,6 +1,6 @@
 import { DeltaStatic } from 'quill-delta';
 import * as React from 'react';
-import { ActivityIndicator, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
+import { ActivityIndicator, View, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
 import { WebView as CommunityWebView, WebViewMessageEvent } from 'react-native-webview';
 import { providerRegistry } from '../../ProviderRegistry/index';
 import { EventType, IMessage } from './interfaces/IMessage';
@@ -9,6 +9,7 @@ import { generateWebViewIndex } from './resources/generateWebViewIndex';
 interface IProps {
   content?: DeltaStatic;
   onContentChange: (content: DeltaStatic) => any;
+  containerStyle: ViewStyle;
 }
 
 interface IState {
@@ -56,13 +57,15 @@ export class Quill extends React.Component<IProps, IState> {
     }
 
     return (
-      <this.WebViewComponent
-        source={{ html: this.state.html }}
-        javaScriptEnabled={true}
-        style={this.webViewStyle}
-        onMessage={this.onMessage}
-        ref={this.registerWebView}
-      />
+      <View style={this.props.containerStyle}>
+        <this.WebViewComponent
+          source={{ html: this.state.html }}
+          javaScriptEnabled={true}
+          style={this.webViewStyle}
+          onMessage={this.onMessage}
+          ref={this.registerWebView}
+        />
+      </View>
     );
   }
 
