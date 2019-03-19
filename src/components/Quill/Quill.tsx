@@ -1,3 +1,4 @@
+import { QuillOptionsStatic } from 'quill';
 import { DeltaStatic } from 'quill-delta';
 import * as React from 'react';
 import { ActivityIndicator, View, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
@@ -7,14 +8,19 @@ import { EventType, IMessage } from './interfaces/IMessage';
 import { generateWebViewIndex } from './resources/generateWebViewIndex';
 
 interface IProps {
+  containerStyle?: ViewStyle;
   content?: DeltaStatic;
   onContentChange: (content: DeltaStatic) => any;
-  containerStyle?: ViewStyle;
+  options?: QuillOptionsStatic;
 }
 
 interface IState {
   html: string | null;
 }
+
+const defaultOptions: QuillOptionsStatic = {
+  theme: 'snow',
+};
 
 type WebViewRef = ReactNativeWebView | CommunityWebView | null;
 
@@ -78,9 +84,13 @@ export class Quill extends React.Component<IProps, IState> {
     const styleSheetRequest = this.ResourceProvider.getQuillStyleSheet(this.ThemeProvider);
 
     const [script, styleSheet] = await Promise.all([scriptRequest, styleSheetRequest]);
+    const options = {
+      ...defaultOptions,
+      ...this.props.options,
+    };
 
     this.setState({
-      html: generateWebViewIndex({ script, styleSheet }, this.props.content),
+      html: generateWebViewIndex({ script, styleSheet }, this.props.content, options),
     });
   }
 

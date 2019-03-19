@@ -1,3 +1,4 @@
+import { QuillOptionsStatic } from 'quill';
 import { DeltaStatic } from 'quill-delta';
 import { EventType } from '../interfaces/IMessage';
 import { IResources } from '../interfaces/IResources';
@@ -8,7 +9,11 @@ import { IResources } from '../interfaces/IResources';
    We input all EventType.{...} occurrences as variables in the template strings to enable type analysis for the event
    types, since they might be change sensitive. */
 
-export function generateWebViewIndex(resources: IResources, content: DeltaStatic | undefined) {
+export function generateWebViewIndex(
+  resources: IResources,
+  content: DeltaStatic | undefined,
+  options: QuillOptionsStatic
+) {
   return encodeURIComponent(/*html*/ `
     <!DOCTYPE html>
     <html>
@@ -86,9 +91,7 @@ export function generateWebViewIndex(resources: IResources, content: DeltaStatic
           }
 
           /* Create the Quill editor */
-          const editor = new Quill('#editor', {
-            theme: 'snow'
-          });
+          const editor = new Quill('#editor', ${JSON.stringify(options)});
 
           /* Set the initial content */
           editor.setContents(${JSON.stringify(content)})
