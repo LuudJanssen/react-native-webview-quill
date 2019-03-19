@@ -47,7 +47,7 @@ export function generateWebViewIndex(
         </style>
       </head>
       <body>
-        <div class="ql-wrapper">
+        <div class="quill-wrapper">
           <div class="quill-editor"></div>
         </div>
 
