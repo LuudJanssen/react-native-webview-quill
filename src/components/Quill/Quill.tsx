@@ -9,7 +9,7 @@ import { generateWebViewIndex } from './resources/generateWebViewIndex';
 interface IProps {
   content?: DeltaStatic;
   onContentChange: (content: DeltaStatic) => any;
-  containerStyle: ViewStyle;
+  containerStyle: ViewStyle | undefined;
 }
 
 interface IState {
