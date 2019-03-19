@@ -37,7 +37,7 @@ export function generateWebViewIndex(
             border: 0px;
           }
           
-          .ql-wrapper .ql-container {
+          .quill-wrapper .ql-container {
             height: auto;
           }
         </style>
