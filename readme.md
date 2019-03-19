@@ -52,7 +52,7 @@ export default class App extends React.Component {
           onContentsChange={contents => {
             console.log(contents);
           }}
-          config={{
+          options={{
             modules: {
               //toolbar: false,
               toolbar: [
@@ -65,7 +65,7 @@ export default class App extends React.Component {
             placeholder: "Placeholder text"
             //readOnly: true,
           }}
-          style={{
+          containerStyle={{
             width: 300,
             height: 200
           }}
@@ -93,7 +93,7 @@ All these properties are optional.
 | **Property**        | **Description**                                                                                                                                                                                                                                                             |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `onContentsChange`  | A callback receiving the quilljs contents as parameter, [whenever the contents change](https://quilljs.com/docs/api/#text-change).                                                                                                                                      |
-| `config`            | A quilljs instance config, see [their documentation](https://quilljs.com/docs/configuration/#options).                                                                                                                                                                  |
-| `style`             | The style property for the inner WebView component, see [documentation](https://facebook.github.io/react-native/docs/style.html).                                                                                                                                       |
+| `options`            | A quilljs instance config, see [their documentation](https://quilljs.com/docs/configuration/#options).                                                                                                                                                                  |
+| `containerStyle`             | The style property for the inner WebView component, see [documentation](https://facebook.github.io/react-native/docs/style.html).                                                                                                                                       |
 | `contents`          | The initial [quilljs contents](https://quilljs.com/guides/designing-the-delta-format/), useful for readonly/viewer component.                                                                                                                                           |
 | `imagePickerConfig` | The [options object](https://github.com/react-native-community/react-native-image-picker/blob/master/docs/Reference.md#options) for the [react-native-image-picker](https://github.com/react-native-community/react-native-image-picker) that is used to insert images. |
