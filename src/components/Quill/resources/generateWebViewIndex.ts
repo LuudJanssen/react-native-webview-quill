@@ -29,6 +29,7 @@ export function generateWebViewIndex(
           .quill-editor {
             height: 100%;
             width: 100%;
+            border: 0px !important;
           }
         </style>
 
