@@ -26,7 +26,7 @@ export function generateWebViewIndex(
             padding: 0;
           }
           
-          .ql-wrapper {
+          .quill-wrapper {
             display: flex;
             flex-direction: column;
             height: 100%;
