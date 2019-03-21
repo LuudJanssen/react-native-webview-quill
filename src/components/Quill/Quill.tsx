@@ -54,14 +54,14 @@ export class Quill extends React.Component<IProps, IState> {
       this.sendMessage(EventType.CONTENT_CHANGE, newProps.content);
     }
 
-    return newState.html !== this.state.html;
+    return newState.html !== this.state.html || newProps.containerStyle != this.props.containerStyle;
   }
 
   public render() {
     if (this.state.html === null) {
       return <ActivityIndicator size="large" style={this.fullHeightStyle} />;
     }
-
+    
     return (
       <View style={this.props.containerStyle}>
         <this.WebViewComponent
