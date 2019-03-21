@@ -34,11 +34,14 @@ export function generateWebViewIndex(
           
           .quill-editor {
             flex: 1 1 auto;
-            border: 0px;
           }
           
           .quill-wrapper .ql-container {
             height: auto;
+          }
+
+          .quill-wrapper .ql-container.ql-snow {
+            border: 0px;
           }
         </style>
 
