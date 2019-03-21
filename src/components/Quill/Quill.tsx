@@ -70,6 +70,7 @@ export class Quill extends React.Component<IProps, IState> {
           style={this.webViewStyle}
           onMessage={this.onMessage}
           ref={this.registerWebView}
+          scalesPageToFit={false}
         />
       </View>
     );
