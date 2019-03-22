@@ -58,12 +58,10 @@ export class Quill extends React.Component<IProps, IState> {
   }
 
   public render() {
-    if (this.state.html === null) {
-      return <ActivityIndicator size="large" style={this.fullHeightStyle} />;
-    }
-    
     return (
       <View style={this.props.containerStyle}>
+        {this.state.html === null ? 
+        <ActivityIndicator size="large" style={this.fullHeightStyle} /> :
         <this.WebViewComponent
           source={{ html: this.state.html }}
           javaScriptEnabled={true}
@@ -71,7 +69,7 @@ export class Quill extends React.Component<IProps, IState> {
           onMessage={this.onMessage}
           ref={this.registerWebView}
           scalesPageToFit={false}
-        />
+        />}
       </View>
     );
   }
