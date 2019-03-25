@@ -25,23 +25,49 @@ export function generateWebViewIndex(
             margin: 0;
             padding: 0;
           }
-          
+
           .quill-wrapper {
             display: flex;
             flex-direction: column;
             height: 100%;
           }
-          
+
           .quill-editor {
             flex: 1 1 auto;
           }
-          
+
           .quill-wrapper .ql-container {
             height: auto;
+            font-size: 16px;
           }
 
-          .quill-wrapper .ql-container.ql-snow {
-            border: 0px;
+          .quill-wrapper .ql-editor {
+            padding: 11px; 
+            transition: all 0.2s;
+          }
+
+          .quill-wrapper .ql-container.ql-snow,
+          .quill-wrapper .ql-toolbar.ql-snow + .ql-container.ql-snow {
+            border: 2px solid rgba(0,0,0,0.12);
+            border-radius: 4px;
+            transition: all 0.2s;
+          }
+
+          .quill-wrapper .ql-container.ql-snow.quill-focus,
+          .quill-wrapper .ql-toolbar.ql-snow + .ql-container.ql-snow.quill-focus {
+            border-color: #00b050; 
+          }
+
+          .quill-wrapper .ql-toolbar.ql-snow {
+            border: 0;
+            padding-left: 0px;
+          }
+
+          .quill-wrapper .ql-editor.ql-blank::before {
+            font-style: normal;
+            left: 11px;
+            color: rgba(0,0,0,0.54);
+            transition: all 0.2s;
           }
         </style>
 
@@ -97,6 +123,14 @@ export function generateWebViewIndex(
             window.onmessage = onMessage
           }
 
+          function onFocus(editor) {
+            editor.container.classList.add('quill-focus');
+          }
+
+          function onBlur(editor) {
+            editor.container.classList.remove('quill-focus');
+          }
+
           /* Create the Quill editor */
           const editor = new Quill('.quill-editor', ${JSON.stringify(options)});
 
@@ -107,6 +141,9 @@ export function generateWebViewIndex(
           editor.on('text-change', function() {
             sendMessage(${EventType.CONTENT_CHANGE}, editor.getContents());
           });
+
+          editor.root.addEventListener('focus', () => onFocus(editor));
+          editor.root.addEventListener('blur', () => onBlur(editor));
 
           bindMessageHandler();
         </script>
