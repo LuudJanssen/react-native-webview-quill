@@ -18,6 +18,7 @@ export function generateWebViewIndex(
     <!DOCTYPE html>
     <html>
       <head>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
         <style>
           html,
           body {
