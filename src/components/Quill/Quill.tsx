@@ -8,6 +8,7 @@ import { EventType, IMessage } from './interfaces/IMessage';
 import { generateWebViewIndex } from './resources/generateWebViewIndex';
 
 interface IProps {
+  accessibilityLabel?: string;
   containerStyle?: ViewStyle;
   content?: DeltaStatic;
   onContentChange?: (content: DeltaStatic) => any;
@@ -59,16 +60,19 @@ export class Quill extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <View style={this.props.containerStyle}>
+      <View
+        accessibilityLabel={this.props.accessibilityLabel}
+        style={this.props.containerStyle}
+      >
         {this.state.html === null ? 
         <ActivityIndicator size="large" style={this.fullHeightStyle} /> :
         <this.WebViewComponent
-          source={{ html: this.state.html }}
           javaScriptEnabled={true}
-          style={this.webViewStyle}
           onMessage={this.onMessage}
           ref={this.registerWebView}
           scalesPageToFit={false}
+          source={{ html: this.state.html }}
+          style={this.webViewStyle}
         />}
       </View>
     );
