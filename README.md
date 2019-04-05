@@ -4,7 +4,7 @@
 
 ## Preview
 
-<img src="./docs/0001.png?raw=true" width="100" alt="screenshot"></img>
+<img src="./docs/0001.png?raw=true" width="300" alt="screenshot"></img>
 
 ## Example Usage
 ```typescript
