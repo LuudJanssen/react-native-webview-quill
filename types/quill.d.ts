@@ -1,1 +1,1 @@
-export * from 'node_modules/@types/quill/index';
+export * from 'quill/index';

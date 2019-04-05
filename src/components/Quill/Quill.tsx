@@ -2,7 +2,8 @@ import { QuillOptionsStatic } from 'quill';
 import { DeltaStatic } from 'quill-delta';
 import * as React from 'react';
 import { ActivityIndicator, View, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
-import { WebView as CommunityWebView, WebViewMessageEvent } from 'react-native-webview';
+import { WebView as CommunityWebView } from 'react-native-webview';
+import { WebViewMessageEvent } from 'react-native-webview/lib/WebViewTypes';
 import { providerRegistry } from '../../ProviderRegistry/index';
 import { EventType, IMessage } from './interfaces/IMessage';
 import { generateWebViewIndex } from './resources/generateWebViewIndex';
@@ -55,25 +56,26 @@ export class Quill extends React.Component<IProps, IState> {
       this.sendMessage(EventType.CONTENT_CHANGE, newProps.content);
     }
 
-    return newState.html !== this.state.html || newProps.containerStyle != this.props.containerStyle;
+    return (
+      newState.html !== this.state.html || newProps.containerStyle != this.props.containerStyle
+    );
   }
 
   public render() {
     return (
-      <View
-        accessibilityLabel={this.props.accessibilityLabel}
-        style={this.props.containerStyle}
-      >
-        {this.state.html === null ? 
-        <ActivityIndicator size="large" style={this.fullHeightStyle} /> :
-        <this.WebViewComponent
-          javaScriptEnabled={true}
-          onMessage={this.onMessage}
-          ref={this.registerWebView}
-          scalesPageToFit={false}
-          source={{ html: this.state.html }}
-          style={this.webViewStyle}
-        />}
+      <View accessibilityLabel={this.props.accessibilityLabel} style={this.props.containerStyle}>
+        {this.state.html === null ? (
+          <ActivityIndicator size="large" style={this.fullHeightStyle} />
+        ) : (
+          <this.WebViewComponent
+            javaScriptEnabled={true}
+            onMessage={this.onMessage}
+            ref={this.registerWebView}
+            scalesPageToFit={false}
+            source={{ html: this.state.html }}
+            style={this.webViewStyle}
+          />
+        )}
       </View>
     );
   }
