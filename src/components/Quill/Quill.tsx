@@ -25,7 +25,6 @@ const defaultOptions: QuillOptionsStatic = {
 
 type WebViewRef = ReactNativeWebView | CommunityWebView | null;
 
-export interface DeltaStatic;
 export class Quill extends React.Component<IProps, IState> {
   private WebViewComponent = providerRegistry.WebViewProvider;
   private ResourceProvider = new providerRegistry.ResourceProvider();
