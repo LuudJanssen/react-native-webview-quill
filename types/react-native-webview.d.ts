@@ -1,1 +1,1 @@
-export * from 'node_modules/react-native-webview/typings/index';
+export { WebView, WebViewProps } from 'react-native-webview/index';

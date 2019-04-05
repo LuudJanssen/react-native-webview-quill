@@ -46,6 +46,6 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "react-native-webview": "^5.2.1"
+    "react-native-webview": "^5.6.2"
   }
 }
