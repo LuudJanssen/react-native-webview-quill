@@ -48,12 +48,18 @@ export default class App extends React.Component<{}, { content: DeltaStatic }> {
       <View style={{ flex: 1 }}>
         <View style={{ height: StatusBar.currentHeight }} />
         <Quill
-          content={this.state.content
-          /* the initial content */}
-          onContentChange={this.onContentChange
-          /* Callend when an edit is made */}
-          containerStyle={{ flex: 1 }
-      /*The style passed to the editor container*/}
+          content={
+            /* the initial content */
+            this.state.content
+          }
+          onContentChange={
+            /* Callend when an edit is made */
+            this.onContentChange
+          }
+          containerStyle={
+            /*The style passed to the editor container*/
+            { flex: 1 }
+           }
         />
       </View>
     );
