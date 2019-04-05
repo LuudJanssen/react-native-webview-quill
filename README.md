@@ -4,7 +4,7 @@
 
 ## Preview
 
-![Screenshot](docs/0001.jpeg?raw=true)
+![Screenshot](docs/0001.png?raw=true | width=100)
 
 ## Example Usage
 ```typescript
