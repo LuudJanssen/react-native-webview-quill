@@ -1,4 +1,4 @@
-import { Quill } from './components/Quill/Quill';
+import { DeltaStatic, Quill } from './components/Quill/Quill';
 import { providerRegistry } from './ProviderRegistry/index';
 
-export { providerRegistry, Quill };
+export { providerRegistry, Quill, DeltaStatic };
