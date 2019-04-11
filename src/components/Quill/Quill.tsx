@@ -71,6 +71,7 @@ export class Quill extends React.Component<IProps, IState> {
             javaScriptEnabled={true}
             onMessage={this.onMessage}
             ref={this.registerWebView}
+            useWebKit={true}
             scalesPageToFit={false}
             source={{ html: this.state.html }}
             style={this.webViewStyle}
