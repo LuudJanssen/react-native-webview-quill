@@ -2,12 +2,12 @@
 
 *[Quill](https://quilljs.com) component for React Native built using
  `postMessage` communication and a WebView.*
- 
+
  [![npm](https://img.shields.io/npm/v/react-native-webview-quill.svg)](https://www.npmjs.com/package/react-native-webview-quill)
  [![npm](https://img.shields.io/npm/dm/react-native-webview-quill.svg)](https://www.npmjs.com/package/react-native-webview-quill)
  [![npm](https://img.shields.io/npm/dt/react-native-webview-quill.svg)](https://www.npmjs.com/package/react-native-webview-quill)
  [![npm](https://img.shields.io/npm/l/react-native-webview-quill.svg)](https://github.com/react-native-component/react-native-webview-quill/blob/master/LICENSE)
- 
+
 ## Installation
 
 ~~~
@@ -41,7 +41,20 @@ All properties are optional.
 | `options`            | A quilljs instance config, see [their documentation](https://quilljs.com/docs/configuration/#options).                                                                                                                                                                  |
 | `containerStyle`             | The style property for the inner WebView component, see [documentation](https://facebook.github.io/react-native/docs/style.html).                                                                                                                                       |
 | `content`          | The initial [quilljs contents](https://quilljs.com/guides/designing-the-delta-format/), useful for readonly/viewer component.                                                                                                                                           |
+## Functions
 
+Use this.quill.reloadResources(), to force component to update content.
+
+```
+componentDidUpdate(prevProps, prevState){
+  if (prevState.delta !== this.state.delta)
+    this.quill.reloadResources()
+}
+
+<Quill
+  ref={(quill) => { this.quill = quill }}
+  content={ this.state.delta } />
+```
 
 ## Example Usage
 
