@@ -15,6 +15,10 @@ interface IState {
   html: string | null;
 }
 
+const defaultOptions: QuillOptionsStatic = {
+  // theme: 'snow',
+};
+
 type WebViewRef = ReactNativeWebView | CommunityWebView | null;
 
 export class Quill extends React.Component<IProps, IState> {
