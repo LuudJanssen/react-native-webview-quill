@@ -51,7 +51,7 @@ export class Quill extends React.Component<IProps, IState> {
     this.loadResources();
   }
   
-  reloadResources = () => {
+  public reload() {
     this.loadResources();
   };
 
