@@ -50,10 +50,10 @@ export class Quill extends React.Component<IProps, IState> {
     this.onMessage = this.onMessage.bind(this);
     this.loadResources();
   }
-  
+
   public reload() {
     this.loadResources();
-  };
+  }
 
   public shouldComponentUpdate(newProps: IProps, newState: IState) {
     if (newProps.content !== this.props.content) {
@@ -61,7 +61,7 @@ export class Quill extends React.Component<IProps, IState> {
     }
 
     return (
-      newState.html !== this.state.html || newProps.containerStyle != this.props.containerStyle
+      newState.html !== this.state.html || newProps.containerStyle !== this.props.containerStyle
     );
   }
 
