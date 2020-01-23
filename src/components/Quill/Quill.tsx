@@ -1,5 +1,5 @@
 import { QuillOptionsStatic } from 'quill';
-import { DeltaStatic } from 'quill-delta';
+import Delta from 'quill-delta';
 import * as React from 'react';
 import { ActivityIndicator, View, ViewStyle, WebView as ReactNativeWebView } from 'react-native';
 import { WebView as CommunityWebView } from 'react-native-webview';
@@ -11,8 +11,8 @@ import { generateWebViewIndex } from './resources/generateWebViewIndex';
 interface IProps {
   accessibilityLabel?: string;
   containerStyle?: ViewStyle;
-  content?: DeltaStatic;
-  onContentChange?: (content: DeltaStatic) => any;
+  content?: Delta;
+  onContentChange?: (content: Delta) => any;
   options?: QuillOptionsStatic;
 }
 

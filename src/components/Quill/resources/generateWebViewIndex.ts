@@ -1,5 +1,5 @@
 import { QuillOptionsStatic } from 'quill';
-import { DeltaStatic } from 'quill-delta';
+import Delta from 'quill-delta';
 import { EventType } from '../interfaces/IMessage';
 import { IResources } from '../interfaces/IResources';
 
@@ -11,7 +11,7 @@ import { IResources } from '../interfaces/IResources';
 
 export function generateWebViewIndex(
   resources: IResources,
-  content: DeltaStatic | undefined,
+  content: Delta | undefined,
   options: QuillOptionsStatic
 ) {
   return encodeURIComponent(/*html*/ `

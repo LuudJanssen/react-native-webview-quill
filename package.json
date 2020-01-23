@@ -25,11 +25,10 @@
     "@babel/core": "^7.3.3",
     "@babel/runtime": "^7.3.1",
     "@types/jest": "^24.0.6",
-    "@types/quill": "^2.0.2",
+    "@types/quill": "^2.0.3",
     "@types/react": "^16.8.4",
     "@types/react-native": "^0.57.38",
     "@types/react-test-renderer": "^16.8.1",
-    "@types/quill-delta": "github:maximkornilov/types-quill-delta",
     "babel-preset-expo": "^5.0.0",
     "jest": "^24.1.0",
     "prettier": "^1.16.4",
@@ -46,6 +45,8 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@types/quill-delta": "github:maximkornilov/types-quill-delta",
+    "quill-delta": "^4.2.1",
     "react-native-webview": "^5.6.2"
   }
 }
