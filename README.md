@@ -1,3 +1,5 @@
+# ⛔️ DEPRECATED - Do you want to take ownership? Please contact me
+
 # React Native Webview Quill
 
 *[Quill](https://quilljs.com) component for React Native built using
